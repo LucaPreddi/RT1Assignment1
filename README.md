@@ -238,6 +238,7 @@ def grab_it():
 Main function
 ----------------------
 
+![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/Flowchart.png)
 
 Results
 ----------------------
