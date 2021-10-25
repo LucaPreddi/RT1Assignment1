@@ -105,10 +105,10 @@ Functions <img src="https://c.tenor.com/y2JXkY1pXkwAAAAC/cat-computer.gif" width
 In order to make the code lighter and tidy I implemented some functions, they're not diffult, but some of them need a bit more attention because they're crucial for the code and for the behaviour of the robot. I'm going to explain each of them, trying to explain them for the overall comprehension of the main function, which contains the whole instructions for the intelligence of the robot and it needs a whole section to be explained.
 
 ### drive() ###
-The drive function permits the movement of the robot using the robot libraries. If we want to go backwards, it only needs a negative speed parameter. Obviously both the motors should have the same amount of power in order to drive straight and not curving.
+The `drive()` function permits the movement of the robot using the robot libraries. If we want to go backwards, it only needs a negative speed parameter. Obviously both the motors should have the same amount of power in order to drive straight and not curving.
 - Arguments 
-  - Speed, the amount of linear velocity that we want our robot to assume.
-  - Seconds, the amount of seconds we want out robot to drive.
+  - `speed`, the amount of linear velocity that we want our robot to assume.
+  - `seconds`, the amount of seconds we want out robot to drive.
 - Returns
   - None.
 - Code
@@ -121,10 +121,10 @@ def drive(speed, seconds):
     R.motors[0].m1.power = 0
 ```
 ### turn() ###
-The turn functions permits the robot to turn where he is without having a linear velocity, indeed the robot is perfectly "stuck" in the point in the space he has even if he rotates.
+The `turn()` functions permits the robot to turn where he is without having a linear velocity, indeed the robot is perfectly "stuck" in the point in the space he has even if he rotates.
 - Arguments 
-  - Speed, the amount of angular velocity that we want our robot to assume.
-  - Seconds, the amount of seconds we want out robot to turn.
+  - `speed`, the amount of angular velocity that we want our robot to assume.
+  - `seconds`, the amount of seconds we want out robot to turn.
 - Returns
   - None.
 - Code
@@ -138,11 +138,11 @@ def turn(speed, seconds):
 ```
 
 ### find_silver_token() ###
-The find_silver_token function is used to study all the silver tokens that are around the robot. The function checks all the tokens that the robot, we can say, sees thanks to R.see() method. The function only takes the tokens that are closer than 3 (which is pretty close inside the enviroment) and inside the angle φ, which is -70°<φ<70°. Obviously, as long as we want only silver tokens, we want to have as marker_type MARKER_TOKEN_SILVER, because it's what it differentiates it from the golden ones.
+The `find_silver_token()` function is used to study all the silver tokens that are around the robot. The function checks all the tokens that the robot, we can say, sees thanks to `R.see()` method. The function only takes the tokens that are closer than 3 (which is pretty close inside the enviroment) and inside the angle `φ`, which is `-70°<φ<70°`. Obviously, as long as we want only silver tokens, we want to have as `marker_type` `MARKER_TOKEN_SILVER`, because it's what it differentiates it from the golden ones.
 - Arguments 
   - None.
 - Returns
-  - Returns distance of the closest silver token and angle between the robot and the closest silver token.
+  - Returns distance of the closest silver token and angle between the robot and the closest silver token (`dist`, `rot_y`).
 - Code
 ```python
 def find_silver_token():
@@ -158,11 +158,11 @@ def find_silver_token():
 ```
 
 ### find_golden_token() ###
-The find_golden_token() function is crucial for the movement of the robot close to a wall. As the find_silver_token() function, it uses the same methods and code structure of it. We can underline the paramaters that change which are the dist which is going to be higher in order to always check where is the closest golden box (dist=100), the angle which is going to be more limited (-40°<φ<40°) because we want to check only the golden boxes in front of the robot, and, of course, the marker_type which is going to be MARKER_TOKEN_GOLD.
+The `find_golden_token()` function is crucial for the movement of the robot close to a wall. As the `find_silver_token()` function, it uses the same methods and code structure of it. We can underline the paramaters that change which are the dist which is going to be higher in order to always check where is the closest golden box (`dist=100`), the angle which is going to be more limited (`-40°<φ<40°`) because we want to check only the golden boxes in front of the robot, and, of course, the `marker_type` which is going to be `MARKER_TOKEN_GOLD`.
 - Arguments 
   - None.
 - Returns
-  - Returns distance of the closest golden token and angle between the robot and the closest golden token.
+  - Returns distance of the closest golden token and angle between the robot and the closest golden token (`dist`, `rot_y`).
 - Code
 ```python
 def find_golden_token():
@@ -179,11 +179,11 @@ def find_golden_token():
 ```
 
 ### find_golden_token_left() ###
-The find_golden_token_left function is used to check how far is the wall of golden boxes on the left, used with its sister, find_golden_token_right we can check where do we have to turn when getting closer to a wall. Nothing is really new because again only one important parameter changes which is the angle, which now is -105°<φ<-75°, as the angle is negative on the left.
+The `find_golden_token_left()` function is used to check how far is the wall of golden boxes on the left, used with its sister, `find_golden_token_right()` we can check where do we have to turn when getting closer to a wall. Nothing is really new because again only one important parameter changes which is the angle, which now is `-105°<φ<-75°`, as the angle is negative on the left.
 - Arguments 
   - None.
 - Returns
-  - Returns distance of the closest golden token on the left.
+  - Returns distance of the closest golden token on the left (`dist`).
 - Code
 ```python
 def find_golden_token_left():
@@ -198,11 +198,11 @@ def find_golden_token_left():
 ```
 
 ### find_golden_token_right() ###
-The find_golden_token_right() function is identical to the one just explained, it only changes the angle which is 75°<φ<105°, as the angle is positive on the right.
+The `find_golden_token_right()` function is identical to the one just explained, it only changes the angle which is `75°<φ<105°`, as the angle is positive on the right.
 - Arguments 
   - None.
 - Returns
-  - Returns distance of the closest golden token on the right.
+  - Returns distance of the closest golden token on the right (`dist`).
 - Code
 ```python
 def find_golden_token_right():
@@ -218,7 +218,7 @@ def find_golden_token_right():
 ```
 
 ### grab_it() ###
-The grab_it() function it's used to do a set of instructions which where inconvenient to put inside the code, as now the main() function feel more conceptual.
+The `grab_it()` function it's used to do a set of instructions which where inconvenient to put inside the code, as now the main() function feel more conceptual.
 - Arguments 
   - None.
 - Returns
@@ -237,14 +237,14 @@ def grab_it():
 
 Main function <img src="https://c.tenor.com/TyhWL7gJwPgAAAAj/peppo-dance.gif" width="20" height="20">
 ----------------------
-The main function() contains all the functions that I developed during the coding part of the project. __What the main() really has is the conceptual part of the project that is the way the robot _thinks_ and how he reacts to the enviroment__. 
+The `main()` function contains all the functions that I developed during the coding part of the project. __What the `main()` really has is the conceptual part of the project that is the way the robot _thinks_ and how he reacts to the enviroment__. 
 To have a clearer field of view I decided to write down a sort of __flowchart__, in order to have a tidy group of concepts inside the whole work I had to develop. Here's the flowchart:
 
 ![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/Flowchart_new.png)
 
 As we want the robot do loop endlessy inside the maze we want to put the instructions inside a while loop which loops endlessy, updating every loop the informations. 
 
-__DISCLAIMER!__: in the code I uploaded you will see a lot of print() functions around the code, this helps you to understand where in the code you are running the program by reading the terminal. Feel free to erase them, for now I'm going to omit them for easier explanation.
+__IMPORTANT NOTE!__: in the code I uploaded you will see a lot of `print()` functions around the code, this helps you to understand where in the code you are running the program by reading the terminal. Feel free to erase them, for now I'm going to omit them for easier explanation.
 
 ```python
 while(1):
@@ -259,7 +259,7 @@ Now, we want to cover the first two parts of the flowchart, using the functions 
 
 ![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Flowchart_2.png)
 
-We do it by adding the last three instructions to the code, using a simple if statement. Thank's to these instructions our robot can move easily when he's away from a token and from a wall made of golden boxes. The variable silver_th is an int number which permits us to change the behaviour of the robot when is close to a silver token (silver_th=1).
+We do it by adding the last three instructions to the code, using a simple if statement. Thank's to these instructions our robot can move easily when he's away from a token and from a wall made of golden boxes. The variable `silver_th` is an int number which permits us to change the behaviour of the robot when is close to a silver token (`silver_th=1`).
 
 ```python
 # Looping endlessy
@@ -281,7 +281,7 @@ The second part we want to study is the one regarding the behaviour of the robot
 
 ![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Flowchart_1.png)
 
-We solve this part by adding some lines using the two parameters right_dist and left_dist, which they can help us a lot, indeed studying the distance either in the left and in the right our robot will turn to the left or to the right!
+We solve this part by adding some lines using the two parameters `right_dist` and `left_dist`, which they can help us a lot, indeed studying the distance either in the left and in the right our robot will turn to the left or to the right!
 
 ```python
 # Looping endlessy
@@ -304,6 +304,51 @@ while(1):
 			elif right_dist>left_dist:
 				turn(25, 0.1)
 ```
+Now we want to cover the last part of the flowchart, the part where the robot is really close to a silver token, and we want to start the routine that makes the robot getting closer to the silver token, adjusting the angle and the distancee and then grabs it. 
+
+The part I'm talking about is the following.
+
+![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Flowchart_3.png)
+
+To develop the code, I decided to use again a really simple if statement, thanks to all the function and reasoning part I went through before starting coding the `main()` function part, at the end we want to call the function to make it all work.
+
+The parameters `a_th`, `-a_th` and `d_th` are those thanks to them we can call the `R.grab()` method and grab the token. The angle and the distance of the robot from the token should be: __`-a_th<φ<a_th` and `d<d_th` with `a_th=2.3` and `d_th=0.4`__.
+
+```python
+# Looping endlessy
+while(1):
+	
+	# Updating informations.
+	dist_silver, rot_silver = find_silver_token()
+	dist_gold, rot_gold =find_golden_token()
+	left_dist=find_golden_token_left()
+	right_dist=find_golden_token_right()
+	
+	# First part of the flowchart.
+	if (dist_gold>gold_th and dist_silver>silver_th) or (dist_gold>gold_th and dist_silver==-1):
+			drive(100,0.05)
+			
+	# Second part of the flowchart.
+	if dist_gold<gold_th and dist_gold!=-1:
+			if left_dist>right_dist:
+				turn(-25, 0.1)
+			elif right_dist>left_dist:
+				turn(25, 0.1)
+	
+	# Third and last part of the flowchart.
+	if dist_silver<silver_th and dist_silver!=-1:
+			if dist_silver < d_th:
+				grab_it()
+	    		elif -a_th<=rot_silver<=a_th:
+	    			drive(40, 0.1)
+		    	elif rot_silver < -a_th:
+				turn(-10, 0.1)
+			elif rot_silver > a_th:
+				turn(10, 0.1)
+	
+main()
+```
+__IMPORTANT NOTE__: if you need a better version of the code with more comments, you can open directly the assignment.py file, which contains a lot more comments to the code and all the code I just explained in the whole README.md file. Please feel free to contact me for more explanation and suggestings. Anyway I will show you my results and what can be improved more.
 
 Results
 ----------------------
