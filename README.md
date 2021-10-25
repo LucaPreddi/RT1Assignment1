@@ -1,9 +1,9 @@
-First assignment of Research Track 1
+First assignment of Research Track 1 <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/python.svg" width="30" height="30">
 ================================
 
 This is a simple, portable robot simulator developed by [Student Robotics](https://studentrobotics.org). Our professor, throught the help of this simulator, gave us an assignment regarding the coding of the movement of the robot inside the enviroment.
 
-Installing and running
+Installing and running <img src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-14.jpg" width="15" height="15">
 ----------------------
 
 The simulator requires a Python 2.7 installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
@@ -22,7 +22,7 @@ Once the dependencies are installed, get inside the directory on the shell. To r
 ```bash
 $ python2 run.py assignment.py`
 ```
-## Troubleshooting
+## Troubleshooting <img src="https://cdn140.picsart.com/264247623010202.gif" width="20" height="20">
 
 When running `python run.py <file>`, you may be presented with an error: `ImportError: No module named 'robot'`. This may be due to a conflict between sr.tools and sr.robot. To resolve, symlink simulator/sr/robot to the location of sr.tools.
 
@@ -33,7 +33,7 @@ On Ubuntu, this can be accomplished by:
 
 Pygame, unfortunately, can be tricky (though [not impossible](http://askubuntu.com/q/312767)) to install in virtual environments. If you are using `pip`, you might try `pip install hg+https://bitbucket.org/pygame/pygame`, or you could use your operating system's package manager. Windows users could use [Portable Python](http://portablepython.com/). PyPyBox2D and PyYAML are more forgiving, and should install just fine using `pip` or `easy_install`.
 
-Introduction
+Introduction <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/298029cc-f5c6-4b7b-a146-ecdf85f98de0/dcf5a2t-a143285d-db85-4b8a-bfef-6cae76df284d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI5ODAyOWNjLWY1YzYtNGI3Yi1hMTQ2LWVjZGY4NWY5OGRlMFwvZGNmNWEydC1hMTQzMjg1ZC1kYjg1LTRiOGEtYmZlZi02Y2FlNzZkZjI4NGQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ucsQuh7pcnByIslYFv1ETJ2Q8_V8N7wjKUkacaNwOB4" width="20" height="20">
 ----------------------
 The aim of the project was to make the robot moving inside a maze made out of golden boxes. We can see the maze if we run the command:
 ```bash
@@ -52,7 +52,7 @@ Professor asked us to let the robot move only counter clockwise, so we had to th
 
 Using the libraries we downloaded and our brain we had to make it work! The following sections will explain step by step the code we developed, starting from the libraries, developing the functions we decided to use and ending with the main code.
 
-Small explanation of how the robot interacts with the enviroment
+Small explanation of how the robot interacts with the enviroment  <img src="https://images.squarespace-cdn.com/content/v1/5ba175f0a9e0286ef432a3bf/1545322611971-20CSVNUR4SEH7PO0BXK9/Full-Run-Turn.gif" width="40" height="40">
 ----------------------
 The API for controlling a simulated robot is designed to be as similar as possible to the [SR API][sr-api].
 
@@ -100,7 +100,7 @@ Each `Marker` object has the following attributes:
 * `rot_y`: an alias for `centre.rot_y`
 * `timestamp`: the time at which the marker was seen (when `R.see` was called).
 
-Functions
+Functions <img src="https://c.tenor.com/y2JXkY1pXkwAAAAC/cat-computer.gif" width="20" height="20">
 ----------------------
 In order to make the code lighter and tidy I implemented some functions, they're not diffult, but some of them need a bit more attention because they're crucial for the code and for the behaviour of the robot. I'm going to explain each of them, trying to explain them for the overall comprehension of the main function, which contains the whole instructions for the intelligence of the robot and it needs a whole section to be explained.
 
@@ -235,7 +235,7 @@ def grab_it():
 		turn(-20,3)
 ```
 
-Main function
+Main function <img src="https://c.tenor.com/TyhWL7gJwPgAAAAj/peppo-dance.gif" width="20" height="20">
 ----------------------
 The main function() contains all the functions that I developed during the coding part of the project. __What the main() really has is the conceptual part of the project that is the way the robot _thinks_ and how he reacts to the enviroment__. 
 To have a clearer field of view I decided to write down a sort of __flowchart__, in order to have a tidy group of concepts inside the whole work I had to develop. Here's the flowchart:
