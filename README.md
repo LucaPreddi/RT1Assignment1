@@ -1,6 +1,9 @@
 First assignment of Research Track 1 <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/python.svg" width="30" height="30">
 ================================
 
+# Summary
+- [Installing and running](Installing-and-running)
+
 This is a simple, portable robot simulator developed by [Student Robotics](https://studentrobotics.org). Our professor, throught the help of this simulator, gave us an assignment regarding the coding of the movement of the robot inside the enviroment.
 
 Installing and running <img src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-14.jpg" width="15" height="15">
