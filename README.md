@@ -242,5 +242,68 @@ To have a clearer field of view I decided to write down a sort of __flowchart__,
 
 ![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/Flowchart_new.png)
 
+As we want the robot do loop endlessy inside the maze we want to put the instructions inside a while loop which loops endlessy, updating every loop the informations. 
+
+__DISCLAIMER!__: in the code I uploaded you will see a lot of print() functions around the code, this helps you to understand where in the code you are running the program by reading the terminal. Feel free to erase them, for now I'm going to omit them for easier explanation.
+
+```python
+while(1):
+
+	dist_silver, rot_silver = find_silver_token()
+	dist_gold, rot_gold =find_golden_token()
+	left_dist=find_golden_token_left()
+	right_dist=find_golden_token_right()
+```
+
+Now, we want to cover the first two parts of the flowchart, using the functions we implemented. Now it is going to be really easy because ny implementing the functions I implemented in the functions section we have all the work more or less done. The first one is the one below.
+
+![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Flowchart_2.png)
+
+We do it by adding the last three instructions to the code, using a simple if statement. Thank's to these instructions our robot can move easily when he's away from a token and from a wall made of golden boxes. The variable silver_th is an int number which permits us to change the behaviour of the robot when is close to a silver token (silver_th=1).
+
+```python
+# Looping endlessy
+while(1):
+
+	# Updating informations.
+	dist_silver, rot_silver = find_silver_token()
+	dist_gold, rot_gold =find_golden_token()
+	left_dist=find_golden_token_left()
+	right_dist=find_golden_token_right()
+	
+	# First part of the flowchart.
+	if (dist_gold>gold_th and dist_silver>silver_th) or (dist_gold>gold_th and dist_silver==-1):
+			print("Drive straight 0.05 seconds")
+			drive(100,0.05)
+```
+
+The second part we want to study is the one regarding the behaviour of the robot close to a wall, which is exactly this part of the flowchart.
+
+![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Flowchart_1.png)
+
+We solve this part by adding some lines using the two parameters right_dist and left_dist, which they can help us a lot, indeed studying the distance either in the left and in the right our robot will turn to the left or to the right!
+
+```python
+# Looping endlessy
+while(1):
+
+	# Updating informations.
+	dist_silver, rot_silver = find_silver_token()
+	dist_gold, rot_gold =find_golden_token()
+	left_dist=find_golden_token_left()
+	right_dist=find_golden_token_right()
+	
+	# First part of the flowchart.
+	if (dist_gold>gold_th and dist_silver>silver_th) or (dist_gold>gold_th and dist_silver==-1):
+			drive(100,0.05)
+			
+	# Second part of the flowchart.
+	if dist_gold<gold_th and dist_gold!=-1:
+			if left_dist>right_dist:
+				turn(-25, 0.1)
+			elif right_dist>left_dist:
+				turn(25, 0.1)
+```
+
 Results
 ----------------------
