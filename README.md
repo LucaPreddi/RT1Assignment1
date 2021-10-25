@@ -352,3 +352,19 @@ __IMPORTANT NOTE__: if you need a better version of the code with more comments,
 
 Results
 ----------------------
+
+### Overall work ###
+
+I am satisfied with the work I've done, I had the opportunity to get deeper into python functions even if the .py we developed is not that hard. Another remarkable part of the project was reasoning before starting coding, that was really important, because we gained a lot of time that we would've spent looking at the code without understanding. I worked a lot with my university colleagues and we were very satisfied for the code each of us developed, comparing every lines and trying to find out what was the best result. 
+
+The overall comprehension of the code in python has to be connected with all the time paid understanding how Git works and all the consequences for each command that we run we will have (like committing before pulling!). This platform is really challenging and permits you to give value to your work.
+
+As the job is (or at least seems) done here's the final result with a sped up video.
+
+https://user-images.githubusercontent.com/85370395/138760348-266444a5-5395-4948-aeb4-d99ac111c672.mp4
+
+### Possible improvements ###
+
+I will try to explain with a list what can be improved in the code in order to have a cleaner movement of the robot. Again, if you have any suggestions feel free to contact me by the links you find in my personal [bio](https://github.com/LucaPreddi).
+
+1. __Online control__: this came out from my friend [@Matteo](https://github.com/MatteoCarlone) and I minds. The aim of this idea is instead of letting the robot hit the wall, trying to always see where is the silver token and trying to mantain the centre of the line, this would make a way smoother movement of the robot.
