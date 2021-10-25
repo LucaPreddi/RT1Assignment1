@@ -240,7 +240,7 @@ Main function <img src="https://c.tenor.com/TyhWL7gJwPgAAAAj/peppo-dance.gif" wi
 The main function() contains all the functions that I developed during the coding part of the project. __What the main() really has is the conceptual part of the project that is the way the robot _thinks_ and how he reacts to the enviroment__. 
 To have a clearer field of view I decided to write down a sort of __flowchart__, in order to have a tidy group of concepts inside the whole work I had to develop. Here's the flowchart:
 
-![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/Flowchart.png)
+![immagine](https://github.com/LucaPreddi/RT1Assignment1/blob/main/Flowchart_new.png)
 
 Results
 ----------------------
