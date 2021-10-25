@@ -1,17 +1,14 @@
 First assignment of Research Track 1 <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/python.svg" width="30" height="30">
 ================================
 
-# Summary
-- [Installing and running](Installing-and-running)
+This is a simple, portable robot simulator developed by [Student Robotics](https://studentrobotics.org). Our professor, throught the help of this simulator, gave us an assignment regarding the coding of the movement of the robot inside the enviroment. Before starting, if you need a specific information, I recommend to use the table of contents on the up left corner!
 
-This is a simple, portable robot simulator developed by [Student Robotics](https://studentrobotics.org). Our professor, throught the help of this simulator, gave us an assignment regarding the coding of the movement of the robot inside the enviroment.
-
-Installing and running
+Installing and running <img src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-14.jpg" width="15" height="15">
 ----------------------
 
 The simulator requires a Python 2.7 installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
 To install the libraries up here, here's some commands for the linux shell:
-<img src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-14.jpg" width="15" height="15">
+
 ```bash
 $ sudo apt-get install python-dev python-pip python-pygame python-yaml`
 ```
