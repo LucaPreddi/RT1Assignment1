@@ -52,7 +52,7 @@ We can see some silver boxes spread around the maze. Another aim of the project 
 Professor asked us to let the robot move only counter clockwise, so we had to think how to make the robot turn always in the right direction. Here's shown the behaviour the robot must have when meeting a wall:
 
 <p align="center">
-	<img src="https://github.com/LucaPreddi/RT1_Assignment_1/blob/main/pics%20and%20gifs/Hit.gif">
+	<img src="https://github.com/LucaPreddi/RT1_Assignment_1/blob/main/pics%20and%20gifs/Hit.gif" height=226>
 </p>
 
 Using the libraries we downloaded and our brain we had to make it work! The following sections will explain step by step the code we developed, starting from the libraries, developing the functions we decided to use and ending with the main code.
@@ -161,6 +161,9 @@ def find_silver_token():
     else:
    	return dist, rot_y
 ```
+<p align="center">
+	<img src="https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Find_silver_token().jpg">
+</p>
 
 ### find_golden_token() ###
 The `find_golden_token()` function is crucial for the movement of the robot close to a wall. As the `find_silver_token()` function, it uses the same methods and code structure of it. We can underline the paramaters that change which are the dist which is going to be higher in order to always check where is the closest golden box (`dist=100`), the angle which is going to be more limited (`-40°<φ<40°`) because we want to check only the golden boxes in front of the robot, and, of course, the `marker_type` which is going to be `MARKER_TOKEN_GOLD`.
@@ -182,6 +185,9 @@ def find_golden_token():
    	return dist, rot_y
 
 ```
+<p align="center">
+	<img src="https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Find_golden_token().jpg">
+</p>
 
 ### find_golden_token_left() ###
 The `find_golden_token_left()` function is used to check how far is the wall of golden boxes on the left, used with its sister, `find_golden_token_right()` we can check where do we have to turn when getting closer to a wall. Nothing is really new because again only one important parameter changes which is the angle, which now is `-105°<φ<-75°`, as the angle is negative on the left.
@@ -221,6 +227,9 @@ def find_golden_token_right():
     else:
    	return dist
 ```
+<p align="center">
+	<img src="https://github.com/LucaPreddi/RT1Assignment1/blob/main/pics%20and%20gifs/Find_gold_token_left_right().jpg">
+</p>
 
 ### grab_it() ###
 The `grab_it()` function it's used to do a set of instructions which where inconvenient to put inside the code, as now the main() function feel more conceptual.
