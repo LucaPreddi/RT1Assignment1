@@ -372,4 +372,5 @@ https://user-images.githubusercontent.com/85370395/138760348-266444a5-5395-4948-
 
 I will try to explain with a list what can be improved in the code in order to have a cleaner movement of the robot. Again, if you have any suggestions feel free to contact me by the links you find in my personal [bio](https://github.com/LucaPreddi).
 
-1. __Online control__: this came out from my friend [@Matteo](https://github.com/MatteoCarlone) and I minds. The aim of this idea is instead of letting the robot hit the wall, trying to always see where is the silver token and trying to mantain the centre of the line, this would make a way smoother movement of the robot.
+1. __Online control__, this came out from my friend [@Matteo](https://github.com/MatteoCarlone) and I minds. The aim of this idea is instead of letting the robot hit the wall, trying to always see where is the silver token and trying to mantain the centre of the line, this would make a way smoother movement of the robot.
+2. __Adding more controls__, as you can see the code is pretty simple and for what the professor was asking, it satisfies the requests. But if we think the robot in another maze, maybe with some different shape walls (like zig-zag-ed or with a wave shape) we can have some problems when choosing the turning direction.
