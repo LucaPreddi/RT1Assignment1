@@ -46,7 +46,7 @@ $ python2 run.py empty.py`
 We can see some silver boxes spread around the maze. Another aim of the project was not to avoid the silver boxes but to grab them and move them away the path the robot walks. Here's a gif to show the behaviour the robot must have when meeting a silver token:
 
 <p align="center">
-	<img src="https://github.com/LucaPreddi/RT1_Assignment_1/blob/main/pics%20and%20gifs/Grab.gif">
+	<img src="https://github.com/LucaPreddi/RT1_Assignment_1/blob/main/pics%20and%20gifs/Grab.gif" height=226>
 </p>
 
 Professor asked us to let the robot move only counter clockwise, so we had to think how to make the robot turn always in the right direction. Here's shown the behaviour the robot must have when meeting a wall:
