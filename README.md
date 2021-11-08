@@ -59,7 +59,7 @@ Using the libraries we downloaded and our brain we had to make it work! The foll
 
 How the robot interacts with the enviroment  <img src="https://images.squarespace-cdn.com/content/v1/5ba175f0a9e0286ef432a3bf/1545322611971-20CSVNUR4SEH7PO0BXK9/Full-Run-Turn.gif" width="40" height="40">
 ----------------------
-The API for controlling a simulated robot is designed to be as similar as possible to the [SR API][sr-api].
+The API for controlling a simulated robot is designed to be as similar as possible to the [SR API](https://www.studentrobotics.org/docs/programming/sr/cheat_sheet).
 
 ### Motors ###
 
