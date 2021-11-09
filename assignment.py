@@ -8,7 +8,7 @@ from sr.robot import *
 a_th = 2.3
 d_th = 0.4
 R = Robot()
-gold_th=1
+gold_th=1.1
 silver_th=1
 
 ################################### DEFINING FUNCTIONS #####################################
@@ -87,11 +87,11 @@ def grab_it():
 
 	if R.grab():
 	    	print("Gotcha!")
-	    	turn(20, 3)
+	    	turn(44, 2)
 	    	drive(20, 0.9)
 	    	R.release()
 	    	drive(-20,0.9)
-		turn(-20,3)
+		turn(-44,2)
 
 ################################### DEFINING MAIN FUNCTION ##################################
 # I decided to make a main() function where to code, I could do it even without implementing it.
@@ -115,8 +115,7 @@ def main():
 		# related to getting to close to the walls.
 		
 		if (dist_gold>gold_th and dist_silver>silver_th) or (dist_gold>gold_th and dist_silver==-1):
-			print("Vado dritto")
-			drive(100,0.05)
+			drive(130,0.1)
 		
 		# If we are close to silver boxes we use a different control which makes us able to get close to the silver 
 		# token without pushing it. This kind of control let us get to the silver token whenever we are silver_th (1.5)
@@ -147,10 +146,10 @@ def main():
 			print("Wait a minute, where's the wall?")
 			
 			if left_dist>right_dist:
-				turn(-25, 0.1)
+				turn(-35, 0.1)
 				print("Wall on the right "+ str(right_dist)+ ", the distance on the left is: "+str(left_dist))		
 			elif right_dist>left_dist:
-				turn(25, 0.1)
+				turn(35, 0.1)
 				print("Wall on the left "+ str(left_dist)+ ", the distance on the right is: "+str(right_dist))
 			else:
 				print("sinistra e destra circa uguali")
