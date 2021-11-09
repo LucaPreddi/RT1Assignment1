@@ -1,9 +1,11 @@
 
-################################## IMPORTING LIBRARIES ####################################
+################################## IMPORTING LIBRARIES ########################################
 
 from __future__ import print_function
 import time
 from sr.robot import *
+
+# Defining some variables useful for the codes later.
 
 a_th = 2.3
 d_th = 0.4
@@ -11,8 +13,11 @@ R = Robot()
 gold_th=1.1
 silver_th=1
 
-################################### DEFINING FUNCTIONS #####################################
-			
+################################### DEFINING FUNCTIONS ########################################
+
+# Defining drive() function, the one that let the robot move in the maze straight. At first we
+# make the motors move then we "turn them down".
+
 def drive(speed, seconds):
     R.motors[0].m0.power = speed
     R.motors[0].m1.power = speed
@@ -20,7 +25,10 @@ def drive(speed, seconds):
     R.motors[0].m0.power = 0
     R.motors[0].m1.power = 0
 
-###########################################################################################
+###############################################################################################
+
+# Defining turn() function, really close to its sister drive() but it needs the motors with
+# a so called "opposite power".
 
 def turn(speed, seconds):
     R.motors[0].m0.power = speed
@@ -29,10 +37,12 @@ def turn(speed, seconds):
     R.motors[0].m0.power = 0
     R.motors[0].m1.power = 0
 
-############################################################################################
+###############################################################################################
+
+# Defining find_silver_token() to find the closest silver token to get closer to it and
+# then later on the main() function start the grab_it() routine.
 
 def find_silver_token():
-    dist=3
     for token in R.see():
         if token.dist < dist and token.info.marker_type is MARKER_TOKEN_SILVER and -70<token.rot_y<70:
             dist=token.dist
@@ -42,7 +52,10 @@ def find_silver_token():
     else:
    	return dist, rot_y
 
-############################################################################################
+###############################################################################################
+
+# Defining find_golden_token() to find the closest token in front of the robot, in order to
+# use it later in the main() function to avoid the walls.
 
 def find_golden_token():
     dist=100
@@ -55,7 +68,10 @@ def find_golden_token():
     else:
    	return dist, rot_y
 
-############################################################################################
+###############################################################################################
+
+# Defining find_golden_token_left() to find the closest token on the left to use these infos
+# combined with the find_golden_token_right() to choose in which way to turn.
 
 def find_golden_token_left():
 
@@ -68,7 +84,10 @@ def find_golden_token_left():
     else:
    	return dist
 
-############################################################################################
+################################################################################################
+
+# Defining find_golden_token_right() to find the closest token on the right to use these infos
+# combined with the find_golden_token_left() to choose in which way to turn.
 
 def find_golden_token_right():
 
@@ -82,6 +101,10 @@ def find_golden_token_right():
    	return dist
 
 ############################################################################################
+
+# Defining the grab_it() routine, this is a funciton created to make the main() function code
+# a little bit more conceptual rather than writing just a bunch of instructions. As you will
+# see in the main() this is going to be appreciatable.
 
 def grab_it():
 
@@ -157,6 +180,8 @@ def main():
 				print("sinistra: "+str(left_dist))
 
 ############################################################################################
+
+# Calling the main() function to let the magic begin.
 
 main()
 
