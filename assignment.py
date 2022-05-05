@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 
 ################################## IMPORTING LIBRARIES ########################################
 
@@ -43,14 +44,15 @@ def turn(speed, seconds):
 # then later on the main() function start the grab_it() routine.
 
 def find_silver_token():
-    for token in R.see():
-        if token.dist < dist and token.info.marker_type is MARKER_TOKEN_SILVER and -70<token.rot_y<70:
-            dist=token.dist
-	    rot_y=token.rot_y
-    if dist==3:
-	return -1, -1
-    else:
-   	return dist, rot_y
+	dist = 3
+	for token in R.see():
+		if (token.dist < dist) and (token.info.marker_type is MARKER_TOKEN_SILVER) and (-70<token.rot_y<70):
+			dist=token.dist
+			rot_y=token.rot_y
+	if dist==3:
+		return -1, -1
+	else:
+		return dist, rot_y
 
 ###############################################################################################
 
@@ -58,15 +60,15 @@ def find_silver_token():
 # use it later in the main() function to avoid the walls.
 
 def find_golden_token():
-    dist=100
-    for token in R.see():
-        if token.dist < dist and token.info.marker_type is MARKER_TOKEN_GOLD and -40<token.rot_y<40:
-            dist=token.dist
-	    rot_y=token.rot_y
-    if dist==100:
-	return -1, -1
-    else:
-   	return dist, rot_y
+	dist=100
+	for token in R.see():
+		if token.dist < dist and token.info.marker_type is MARKER_TOKEN_GOLD and -40<token.rot_y<40:
+			dist=token.dist
+			rot_y=token.rot_y
+	if dist==100:
+		return -1, -1
+	else:
+		return dist, rot_y
 
 ###############################################################################################
 
@@ -74,15 +76,14 @@ def find_golden_token():
 # combined with the find_golden_token_right() to choose in which way to turn.
 
 def find_golden_token_left():
-
     dist=100
     for token in R.see():
-        if token.dist < dist and token.info.marker_type is MARKER_TOKEN_GOLD and -105<token.rot_y<-75:
+    	if token.dist < dist and token.info.marker_type is MARKER_TOKEN_GOLD and -105<token.rot_y<-75:
             dist=token.dist
     if dist==100:
-	return -1
+		return -1
     else:
-   	return dist
+   		return dist
 
 ################################################################################################
 
@@ -90,15 +91,14 @@ def find_golden_token_left():
 # combined with the find_golden_token_left() to choose in which way to turn.
 
 def find_golden_token_right():
-
     dist=100
     for token in R.see():
         if token.dist < dist and token.info.marker_type is MARKER_TOKEN_GOLD and 75<token.rot_y<105:
             dist=token.dist
     if dist==100:
-	return -1
+		return -1
     else:
-   	return dist
+   		return dist
 
 ############################################################################################
 
@@ -109,12 +109,12 @@ def find_golden_token_right():
 def grab_it():
 
 	if R.grab():
-	    	print("Gotcha!")
-	    	turn(44, 2)
-	    	drive(20, 0.9)
-	    	R.release()
-	    	drive(-20,0.9)
-		turn(-44,2)
+	    print("Gotcha!")
+	    turn(44, 2)
+	    drive(20, 0.9)
+	    R.release()
+	    drive(-20,0.9)
+	    turn(-44,2)
 
 ################################### DEFINING MAIN FUNCTION ##################################
 # I decided to make a main() function where to code, I could do it even without implementing it.
@@ -138,6 +138,7 @@ def main():
 		# related to getting to close to the walls.
 		
 		if (dist_gold>gold_th and dist_silver>silver_th) or (dist_gold>gold_th and dist_silver==-1):
+			counted_collision = false
 			drive(130,0.1)
 		
 		# If we are close to silver boxes we use a different control which makes us able to get close to the silver 
@@ -150,15 +151,15 @@ def main():
 			if dist_silver < d_th:
 				print("Found it!")
 				grab_it()
-	    		elif -a_th<=rot_silver<=a_th:
-	    			drive(40, 0.1)
-	    			print("Ah, that'll do.")
-		    	elif rot_silver < -a_th:
+			elif -a_th<=rot_silver<=a_th:
+				drive(40, 0.1)
+				print("Ah, that'll do.")
+			elif rot_silver < -a_th:
 				print("Left a bit...")
-				turn(-10, 0.1)
+				turn(-5, 0.1)
 			elif rot_silver > a_th:
 				print("Right a bit...")
-				turn(10, 0.1)
+				turn(5, 0.1)
 		
 		# If the robot is too close to the golden wall we stop the robot and depending to the distance of the golden
 		# tokens on the right or on the left it turns in one direction. Then when the distance detected by the 
@@ -167,12 +168,16 @@ def main():
 		if dist_gold<gold_th and dist_gold!=-1:
 		
 			print("Wait a minute, where's the wall?")
-			
+			if (!counted_collision)
+				collision += 1
+				counted_collision = true;
+				print(collision)
+
 			if left_dist>right_dist:
-				turn(-35, 0.1)
+				turn(-30, 0.1)
 				print("Wall on the right "+ str(right_dist)+ ", the distance on the left is: "+str(left_dist))		
 			elif right_dist>left_dist:
-				turn(35, 0.1)
+				turn(30, 0.1)
 				print("Wall on the left "+ str(left_dist)+ ", the distance on the right is: "+str(right_dist))
 			else:
 				print("sinistra e destra circa uguali")
