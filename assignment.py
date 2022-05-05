@@ -13,6 +13,8 @@ d_th = 0.4
 R = Robot()
 gold_th=1.1
 silver_th=1
+collision = 0
+counter_silver = 0
 
 ################################### DEFINING FUNCTIONS ########################################
 
@@ -107,8 +109,10 @@ def find_golden_token_right():
 # see in the main() this is going to be appreciatable.
 
 def grab_it():
+	global counter_silver
 
 	if R.grab():
+	    counter_silver += 1
 	    print("Gotcha!")
 	    turn(44, 2)
 	    drive(20, 0.9)
@@ -119,8 +123,11 @@ def grab_it():
 ################################### DEFINING MAIN FUNCTION ##################################
 # I decided to make a main() function where to code, I could do it even without implementing it.
 
+start = time.time()
+
 def main():
-	
+	global counter_silver
+	global collision
 	# We want to loop the program to move the robot endlessy.
 	
 	while 1:
@@ -138,7 +145,7 @@ def main():
 		# related to getting to close to the walls.
 		
 		if (dist_gold>gold_th and dist_silver>silver_th) or (dist_gold>gold_th and dist_silver==-1):
-			counted_collision = false
+			counted_collision = 0
 			drive(130,0.1)
 		
 		# If we are close to silver boxes we use a different control which makes us able to get close to the silver 
@@ -151,6 +158,11 @@ def main():
 			if dist_silver < d_th:
 				print("Found it!")
 				grab_it()
+				if counter_silver == 7:
+					end = time.time()
+					time_elapsed = end - start
+					print(time_elapsed)
+					return 0
 			elif -a_th<=rot_silver<=a_th:
 				drive(40, 0.1)
 				print("Ah, that'll do.")
@@ -168,9 +180,9 @@ def main():
 		if dist_gold<gold_th and dist_gold!=-1:
 		
 			print("Wait a minute, where's the wall?")
-			if (!counted_collision)
+			if (counted_collision == 0):
 				collision += 1
-				counted_collision = true;
+				counted_collision = 1;
 				print(collision)
 
 			if left_dist>right_dist:

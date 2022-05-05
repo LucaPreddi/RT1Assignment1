@@ -1,14 +1,14 @@
 from __future__ import division
-
+import random
 import pygame
 from math import pi
-from random import random
+from numpy import random
 
 from .arena import Arena, ARENA_MARKINGS_COLOR, ARENA_MARKINGS_WIDTH
 
 from ..markers import Token
 from ..vision import MARKER_TOKEN_GOLD, MARKER_TOKEN_SILVER
-
+        
 class GoldToken(Token):
     def __init__(self, arena, marker_number):
         super(GoldToken, self).__init__(arena, marker_number,
@@ -150,18 +150,28 @@ class SunnySideUpArena(Arena):
             self.objects.append(token) 
             count+1
             
+        #First one
+        
         token=SilverToken(self,count)
-        token.location = (-8, 0)
+        x_1 = random.uniform(-8.5, -7.5)
+        y_1 = random.uniform(-4, 3)
+        token.location = (-8, y_1)
         self.objects.append(token) 
         count+1
         
+        #Second one 
+        
         token=SilverToken(self,count)
-        token.location = (-6, 3.75)
+        x_2 = random.uniform(-7, -3)
+        y_2 = random.uniform(3.25, 4.25)
+        token.location = (x_2, 3.75)
         self.objects.append(token) 
         count+1
         
+        
         token=SilverToken(self,count)
-        token.location = (-2.5, 1.25)
+        y_3 = random.uniform(0.0, 4.50)
+        token.location = (-2.5, y_3)
         self.objects.append(token) 
         count+1
         
@@ -176,7 +186,7 @@ class SunnySideUpArena(Arena):
         count+1
         
         token=SilverToken(self,count)
-        token.location = (8, 0.0)
+        token.location = (-7.0, -3.75)
         self.objects.append(token) 
         count+1
         
